@@ -1,7 +1,7 @@
 :root {
   --text: #2c3338;
-  --primary: #4249d4;
-  --primary-op: #4249d420;
+  --primary: #40916c;
+  --primary-op: #40916d4e;
   --bg: #ffffff;
   --gray: #eeeaea;
   --code: #282936;
@@ -18,9 +18,9 @@ body {
 }
 
 body.dark {
-  --text: #e2ecf3;
-  --primary: #979be7;
-  --primary-op: #979be720;
+  --text: #edf2f4;
+  --primary: #95d5b2;
+  --primary-op: #95d5b26e;
   --bg: #0e1216;
   --gray: #373a40;
   --code: #1d1f24;
@@ -190,6 +190,14 @@ body.dark img {
 .navbar .site-name {
   font-size: 1.3rem;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.site-name span {
+  color: var(--primary);
+  font-size: 1.3rem;
+  font-weight: bold;
 }
 
 .navbar .links {
@@ -282,11 +290,11 @@ body.dark img {
 
 .sidebar-links li:hover {
   cursor: pointer;
-  background-color: var(--gray);
+  background-color: var(--primary-op);
 }
 
 .sidebar-links .active {
-  background-color: var(--gray);
+  background-color: var(--primary-op);
 }
 
 .sidebar ul {
@@ -364,7 +372,7 @@ a.sidebar-link:hover {
   padding-bottom: 2rem;
   display: block;
 }
-
+/* 
 .theme-default-content:not(.custom) > h1:first-child + .custom-block,
 .theme-default-content:not(.custom) > h1:first-child + p,
 .theme-default-content:not(.custom) > h1:first-child + pre,
@@ -405,7 +413,7 @@ a.sidebar-link:hover {
   margin-top: -3.1rem;
   padding-top: 4.6rem;
   margin-bottom: 0;
-}
+} */
 
 .theme-default-content:not(.custom) {
   /* max-width: 740px;

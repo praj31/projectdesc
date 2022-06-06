@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { isDarkThemeSet, setDarkTheme } from '../util/theme'
 
 const Navbar: React.FC = (): JSX.Element => {
-  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false)
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(true)
   const [toggle, setToggle] = useState<boolean>(isDarkThemeSet)
 
   useEffect(() => {
@@ -49,7 +49,9 @@ const Navbar: React.FC = (): JSX.Element => {
         </svg>
       </div>
       <Link href={'/'}>
-        <a className='site-name'>Project Desc</a>
+        <a className='site-name'>
+          Project<span>Desc</span>
+        </a>
       </Link>
       <div className='links'>
         <nav className='nav-links'>

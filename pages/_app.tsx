@@ -1,9 +1,10 @@
 import type { AppProps } from 'next/app'
 import { useEffect, useReducer, useState } from 'react'
 import { setDarkTheme } from '../util/theme'
-import '../styles/globals.css'
-import { initialState, reducer } from '../reducer'
 import { StateContext } from '../context'
+import { reducer } from '../reducer'
+import { initialState } from '../reducer/state'
+import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState<boolean>(true)

@@ -1,13 +1,15 @@
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { StateContext } from '../context'
+import { ACTIONS } from '../reducer/actions'
 import { isDarkThemeSet, setDarkTheme } from '../util/theme'
 
 const Navbar: React.FC = (): JSX.Element => {
-  const [sidebarOpen, setSidebarOpen] = useState<boolean>(true)
+  const { state, dispatch } = useContext(StateContext)
   const [toggle, setToggle] = useState<boolean>(isDarkThemeSet)
 
   useEffect(() => {
-    if (sidebarOpen) {
+    if (state.sidebarOpen) {
       document.querySelector('.sidebar')?.classList.add('sidebar-open')
       document.querySelector('.theme-default-content')?.classList.add('pad-l')
     } else {
@@ -16,7 +18,7 @@ const Navbar: React.FC = (): JSX.Element => {
         .querySelector('.theme-default-content')
         ?.classList.remove('pad-l')
     }
-  }, [sidebarOpen])
+  }, [state.sidebarOpen])
 
   useEffect(() => {
     if (toggle) {
@@ -33,7 +35,12 @@ const Navbar: React.FC = (): JSX.Element => {
       <div
         className='sidebar-button'
         role={'button'}
-        onClick={() => setSidebarOpen(!sidebarOpen)}
+        onClick={() =>
+          dispatch({
+            type: ACTIONS.TOGGLE_SIDEBAR,
+            payload: !state.sidebarOpen,
+          })
+        }
       >
         <svg
           xmlns='http://www.w3.org/2000/svg'

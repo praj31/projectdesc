@@ -1,5 +1,6 @@
 import { createContext, Dispatch } from 'react'
-import { initialState, ReducerAction, ReducerStateType } from '../reducer'
+import { ReducerAction } from '../reducer/actions'
+import { ReducerStateType, initialState } from '../reducer/state'
 
 type ContextState = {
   state: ReducerStateType

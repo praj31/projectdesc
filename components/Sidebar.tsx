@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { StateContext } from '../context'
-import { ACTIONS } from '../reducer'
+import { ACTIONS } from '../reducer/actions'
 
 const sections = [
   { title: 'Header' },
@@ -16,13 +16,12 @@ const sections = [
 
 const Sidebar: React.FC = (): JSX.Element => {
   const { state, dispatch } = useContext(StateContext)
-  console.log(state)
   return (
     <>
       <div className='sidebar-mask'></div>
       <aside className='sidebar'>
         <ul className='sidebar-links'>
-          {sections.map(({ title, value }, idx) => (
+          {sections.map(({ title }, idx) => (
             <li
               key={idx}
               className={`${state.section === title ? 'active' : ''}`}

@@ -1,11 +1,13 @@
 import type { NextPage } from 'next'
-import Link from 'next/link'
+import { useContext } from 'react'
 import Layout from '../components/Layout'
+import { StateContext } from '../context'
 
 const Home: NextPage = () => {
+  const { state } = useContext(StateContext)
   return (
     <Layout>
-      <h3>The project is under development. It will be live soon.</h3>
+      <h3>{state.section}</h3>
     </Layout>
   )
 }

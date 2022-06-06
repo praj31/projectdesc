@@ -295,6 +295,7 @@ body.dark img {
 
 .sidebar-links .active {
   background-color: var(--primary-op);
+  font-weight: 600;
 }
 
 .sidebar ul {

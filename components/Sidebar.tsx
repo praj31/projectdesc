@@ -28,7 +28,7 @@ const Sidebar: React.FC = (): JSX.Element => {
               onClick={() =>
                 dispatch({
                   type: ACTIONS.CHANGE_SECTION,
-                  payload: title,
+                  payload: { section: title },
                 })
               }
             >

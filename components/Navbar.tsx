@@ -38,7 +38,7 @@ const Navbar: React.FC = (): JSX.Element => {
         onClick={() =>
           dispatch({
             type: ACTIONS.TOGGLE_SIDEBAR,
-            payload: !state.sidebarOpen,
+            payload: { sidebarOpen: !state.sidebarOpen },
           })
         }
       >

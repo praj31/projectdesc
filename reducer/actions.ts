@@ -1,9 +1,13 @@
-export const ACTIONS = {
-  CHANGE_SECTION: 'change-section',
-  TOGGLE_SIDEBAR: 'toggle-sidebar',
+import { ReducerStateType } from './state'
+
+export enum ACTIONS {
+  CHANGE_SECTION = 'change-header',
+  TOGGLE_SIDEBAR = 'toggle-sidebar',
 }
 
-export type ReducerAction = {
-  type: string
-  payload: any
+export interface Action<T, P> {
+  type: T
+  payload?: Partial<P>
 }
+
+export type ReducerActionType = Action<ACTIONS, ReducerStateType>

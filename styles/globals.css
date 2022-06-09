@@ -466,6 +466,10 @@ a.sidebar-link:hover {
 }
 
 @media (max-width: 959px) {
+  body {
+    overflow: auto;
+  }
+
   .sidebar {
     font-size: 15px;
     width: 16.4rem;
@@ -473,6 +477,12 @@ a.sidebar-link:hover {
 
   .theme-default-content:not(.custom) {
     padding: 2rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr;
+  }
+
+  .theme-default-content:not(.custom) section {
+    max-height: auto;
   }
 
   .pad-l {

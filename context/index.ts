@@ -12,4 +12,4 @@ const intitalContext: ContextState = {
   dispatch: (value: ReducerActionType) => undefined,
 }
 
-export const StateContext = createContext(intitalContext)
+export const StateContext = createContext<ContextState>(intitalContext)

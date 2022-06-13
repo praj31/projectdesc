@@ -11,8 +11,8 @@ export const setDarkTheme = (val: string) => {
 export const setTheme = () => {
   const theme = localStorage.getItem('theme')
   if (!theme) {
-    setDarkTheme('light')
-    document.body.classList.remove('dark')
+    setDarkTheme('dark')
+    document.body.classList.add('dark')
   }
   if (theme === 'dark') {
     setDarkTheme('dark')

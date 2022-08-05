@@ -8,7 +8,7 @@ import { isDarkThemeSet, setDarkTheme } from '../../util/theme'
 const Navbar: React.FC = (): JSX.Element => {
   const { state, dispatch } = useContext(StateContext)
   const [toggle, setToggle] = useState<boolean>(isDarkThemeSet)
-  console.log('Nav')
+
   useEffect(() => {
     if (state.sidebarOpen) {
       document.querySelector('.sidebar')?.classList.add('sidebar-open')

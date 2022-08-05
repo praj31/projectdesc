@@ -389,8 +389,47 @@ a.sidebar-link:hover {
   float: right;
 }
 
-.section-h1 {
+.section-title {
   margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+
+.section-subtitle {
+  color: var(--gray-text);
+  display: block;
+  margin: 0.4rem 0;
+}
+
+.section-nav {
+  margin-top: 0.75rem;
+  border-top: var(--border);
+}
+
+.section-nav button {
+  display: inline-block;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  color: var(--gray-text);
+}
+
+.section-nav button:hover {
+  cursor: pointer;
+  color: var(--text);
+}
+
+.section-nav button:first-child {
+  float: left;
+  padding-left: 0;
+}
+
+.section-nav button:last-child {
+  float: right;
+  padding-right: 0;
 }
 
 @media (max-width: 959px) {

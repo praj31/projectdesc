@@ -7,7 +7,6 @@ const sections = [
   { title: 'Description' },
   { title: 'People Involved' },
   { title: 'Built With' },
-  { title: 'Features' },
   { title: 'Screenshots' },
   { title: 'Contact' },
 ]

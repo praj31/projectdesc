@@ -1,10 +1,9 @@
 import type { NextPage } from 'next'
-import { useContext } from 'react'
+import React, { useContext } from 'react'
 import Layout from '../components/layout'
 import { BuiltWithSection } from '../components/sections/BuiltWith'
 import { ContactSection } from '../components/sections/Contact'
 import { DescriptionSection } from '../components/sections/Description'
-import { FeaturesSection } from '../components/sections/Features'
 import { HeaderSection } from '../components/sections/Header'
 import { PeopleInvolvedSection } from '../components/sections/PeopleInvolved'
 import { ScreenshotsSection } from '../components/sections/Screenshots'
@@ -23,21 +22,22 @@ const Home: NextPage = () => {
 }
 
 const displaySection = (section: string) => {
-  return section === 'Header' ? (
-    <HeaderSection />
-  ) : section === 'Description' ? (
-    <DescriptionSection />
-  ) : section === 'People Involved' ? (
-    <PeopleInvolvedSection />
-  ) : section === 'Built With' ? (
-    <BuiltWithSection />
-  ) : section === 'Features' ? (
-    <FeaturesSection />
-  ) : section === 'Screenshots' ? (
-    <ScreenshotsSection />
-  ) : section === 'Contact' ? (
-    <ContactSection />
-  ) : null
+  switch (section) {
+    case 'Header':
+      return <HeaderSection />
+    case 'Description':
+      return <DescriptionSection />
+    case 'People Involved':
+      return <PeopleInvolvedSection />
+    case 'Built With':
+      return <BuiltWithSection />
+    case 'Screenshots':
+      return <ScreenshotsSection />
+    case 'Contact':
+      return <ContactSection />
+    default:
+      return null
+  }
 }
 
 export default Home

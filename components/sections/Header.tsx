@@ -1,3 +1,14 @@
+import SectionNavigation from '../reusable/section/SectionNavigation'
+import SectionTitle from '../reusable/section/SectionTitle'
+
 export const HeaderSection = () => {
-  return <h1 className='section-h1'>Header</h1>
+  return (
+    <>
+      <SectionTitle
+        title='Header'
+        subtitle="Grab your reader's attention with a flashy header!"
+      />
+      <SectionNavigation next='Description' />
+    </>
+  )
 }

@@ -1,16 +1,14 @@
 import { useContext } from 'react'
-import { StateContext } from '../context'
-import { ACTIONS } from '../reducer/actions'
+import { StateContext } from '../../context'
+import { ACTIONS } from '../../reducer/actions'
 
 const sections = [
   { title: 'Header' },
   { title: 'Description' },
   { title: 'People Involved' },
-  { title: 'Needs & Requirements' },
   { title: 'Built With' },
   { title: 'Features' },
   { title: 'Screenshots' },
-  { title: 'Best Practices' },
   { title: 'Contact' },
 ]
 

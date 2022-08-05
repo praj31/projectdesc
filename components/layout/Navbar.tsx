@@ -1,13 +1,14 @@
 import Link from 'next/link'
+import React from 'react'
 import { useContext, useEffect, useState } from 'react'
-import { StateContext } from '../context'
-import { ACTIONS } from '../reducer/actions'
-import { isDarkThemeSet, setDarkTheme } from '../util/theme'
+import { StateContext } from '../../context'
+import { ACTIONS } from '../../reducer/actions'
+import { isDarkThemeSet, setDarkTheme } from '../../util/theme'
 
 const Navbar: React.FC = (): JSX.Element => {
   const { state, dispatch } = useContext(StateContext)
   const [toggle, setToggle] = useState<boolean>(isDarkThemeSet)
-
+  console.log('Nav')
   useEffect(() => {
     if (state.sidebarOpen) {
       document.querySelector('.sidebar')?.classList.add('sidebar-open')
@@ -32,34 +33,36 @@ const Navbar: React.FC = (): JSX.Element => {
 
   return (
     <header className='navbar'>
-      <div
-        className='sidebar-button'
-        role={'button'}
-        onClick={() =>
-          dispatch({
-            type: ACTIONS.TOGGLE_SIDEBAR,
-            payload: { sidebarOpen: !state.sidebarOpen },
-          })
-        }
-      >
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          aria-hidden='true'
-          role='img'
-          viewBox='0 0 448 512'
-          className='icon'
+      <div className='sidebar-brand'>
+        <div
+          className='sidebar-button'
+          role={'button'}
+          onClick={() =>
+            dispatch({
+              type: ACTIONS.TOGGLE_SIDEBAR,
+              payload: { sidebarOpen: !state.sidebarOpen },
+            })
+          }
         >
-          <path
-            fill='currentColor'
-            d='M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z'
-          ></path>
-        </svg>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            aria-hidden='true'
+            role='img'
+            viewBox='0 0 448 512'
+            className='icon'
+          >
+            <path
+              fill='currentColor'
+              d='M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z'
+            ></path>
+          </svg>
+        </div>
+        <Link href={'/'}>
+          <a className='site-name'>
+            Project<span>Desc</span>
+          </a>
+        </Link>
       </div>
-      <Link href={'/'}>
-        <a className='site-name'>
-          Project<span>Desc</span>
-        </a>
-      </Link>
       <div className='links'>
         <nav className='nav-links'>
           <div
@@ -102,5 +105,7 @@ const Navbar: React.FC = (): JSX.Element => {
     </header>
   )
 }
+
+// const Navbar = React.memo(NavbarComponent)
 
 export default Navbar

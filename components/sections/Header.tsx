@@ -1,20 +1,3 @@
 export const HeaderSection = () => {
-  return (
-    <>
-      <h1>Header</h1>
-      <h1>Header</h1>
-      <h1>Header</h1>
-      <h1>Header</h1>
-      <h1>Header</h1>
-      <h1>Header</h1>
-      <h1>Header</h1>
-      <h1>Header</h1>
-      <h1>Header</h1>
-      <h1>Header</h1>
-      <h1>Header</h1>
-      <h1>Header</h1>
-      <h1>Header</h1>
-      <h1>Header</h1>
-    </>
-  )
+  return <h1 className='section-h1'>Header</h1>
 }

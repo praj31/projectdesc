@@ -1,6 +1,5 @@
 import { useContext } from 'react'
 import { StateContext } from '../../context'
-import { ACTIONS } from '../../reducer/actions'
 
 const sections = [
   { title: 'Header' },
@@ -21,11 +20,11 @@ const Sidebar: React.FC = (): JSX.Element => {
           {sections.map(({ title }, idx) => (
             <li
               key={idx}
-              className={`${state.section === title ? 'active' : ''}`}
+              className={`${state.activeSection === title ? 'active' : ''}`}
               onClick={() =>
                 dispatch({
-                  type: ACTIONS.CHANGE_SECTION,
-                  payload: { section: title },
+                  type: 'change-section',
+                  payload: title,
                 })
               }
             >

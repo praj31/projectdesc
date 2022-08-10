@@ -2,7 +2,6 @@ import Link from 'next/link'
 import React from 'react'
 import { useContext, useEffect, useState } from 'react'
 import { StateContext } from '../../context'
-import { ACTIONS } from '../../reducer/actions'
 import { isDarkThemeSet, setDarkTheme } from '../../util/theme'
 
 const Navbar: React.FC = (): JSX.Element => {
@@ -25,9 +24,11 @@ const Navbar: React.FC = (): JSX.Element => {
     if (toggle) {
       setDarkTheme('dark')
       document.body.classList.add('dark')
+      document.documentElement.setAttribute('data-color-scheme', 'dark')
     } else {
       setDarkTheme('light')
       document.body.classList.remove('dark')
+      document.documentElement.setAttribute('data-color-scheme', 'light')
     }
   }, [toggle])
 
@@ -39,8 +40,8 @@ const Navbar: React.FC = (): JSX.Element => {
           role={'button'}
           onClick={() =>
             dispatch({
-              type: ACTIONS.TOGGLE_SIDEBAR,
-              payload: { sidebarOpen: !state.sidebarOpen },
+              type: 'toggle-sidebar',
+              payload: !state.sidebarOpen,
             })
           }
         >

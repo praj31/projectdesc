@@ -1,13 +1,16 @@
-import { ReducerStateType } from './state'
+export type ACTIONS = 'toggle-sidebar' | 'change-section' | 'handle-header'
 
-export enum ACTIONS {
-  CHANGE_SECTION = 'change-header',
-  TOGGLE_SIDEBAR = 'toggle-sidebar',
+type ToggleSidebarAction = { type: 'toggle-sidebar'; payload: boolean }
+type ChangeActiveSectionAction = {
+  type: 'change-section'
+  payload: string
+}
+type HandleHeaderAction = {
+  type: 'handle-header'
+  payload: { property: string; value: string }
 }
 
-export interface Action<T, P> {
-  type: T
-  payload?: Partial<P>
-}
-
-export type ReducerActionType = Action<ACTIONS, ReducerStateType>
+export type ReducerActionType =
+  | ToggleSidebarAction
+  | ChangeActiveSectionAction
+  | HandleHeaderAction

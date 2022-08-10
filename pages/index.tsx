@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import React, { useContext } from 'react'
 import Layout from '../components/layout'
+import RenderMarkdown from '../components/render/Markdown'
 import { BuiltWithSection } from '../components/sections/BuiltWith'
 import { ContactSection } from '../components/sections/Contact'
 import { DescriptionSection } from '../components/sections/Description'
@@ -11,11 +12,12 @@ import { StateContext } from '../context'
 
 const Home: NextPage = () => {
   const { state } = useContext(StateContext)
+
   return (
     <Layout>
-      <section>{displaySection(state.section)}</section>
+      <section>{displaySection(state.activeSection)}</section>
       <section>
-        <h1 className='section-h1'>Part 2</h1>
+        <RenderMarkdown />
       </section>
     </Layout>
   )

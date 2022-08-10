@@ -1,5 +1,3 @@
-import SectionNavigation from './SectionNavigation'
-
 type Props = {
   title: string
   subtitle: string

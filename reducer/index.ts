@@ -1,4 +1,4 @@
-import { ACTIONS, ReducerActionType } from './actions'
+import { ReducerActionType } from './actions'
 import { ReducerStateType } from './state'
 
 export const reducer = (
@@ -6,10 +6,18 @@ export const reducer = (
   action: ReducerActionType
 ): ReducerStateType => {
   switch (action.type) {
-    case ACTIONS.CHANGE_SECTION:
-      return { ...state, section: action.payload?.section! }
-    case ACTIONS.TOGGLE_SIDEBAR:
-      return { ...state, sidebarOpen: action.payload?.sidebarOpen! }
+    case 'change-section':
+      return { ...state, activeSection: action.payload }
+    case 'toggle-sidebar':
+      return { ...state, sidebarOpen: action.payload }
+    case 'handle-header':
+      return {
+        ...state,
+        header: {
+          ...state.header,
+          [action.payload.property]: action.payload.value,
+        },
+      }
     default:
       return state
   }

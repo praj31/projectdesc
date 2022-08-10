@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app'
-import { useEffect, useReducer, useState } from 'react'
+import { useEffect, useMemo, useReducer, useState } from 'react'
 import { setTheme } from '../util/theme'
 import { StateContext } from '../context'
 import { reducer } from '../reducer'
@@ -16,6 +16,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     setLoading(false)
   }, [])
 
+  const globalState = useMemo(() => {
+    return { state, dispatch }
+  }, [state])
+
   if (loading) {
     return (
       <div className='loading'>
@@ -25,7 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }
 
   return (
-    <StateContext.Provider value={{ state, dispatch }}>
+    <StateContext.Provider value={globalState}>
       <Component {...pageProps} />
     </StateContext.Provider>
   )

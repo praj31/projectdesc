@@ -1,6 +1,5 @@
 import { useContext } from 'react'
 import { StateContext } from '../../../context'
-import { ACTIONS } from '../../../reducer/actions'
 
 type Props = {
   prev?: string
@@ -11,7 +10,7 @@ const SectionNavigation = (props: Props) => {
   const { dispatch } = useContext(StateContext)
 
   const callDispatch = (val: string) => {
-    dispatch({ type: ACTIONS.CHANGE_SECTION, payload: { section: val } })
+    dispatch({ type: 'change-section', payload: val })
   }
 
   return (

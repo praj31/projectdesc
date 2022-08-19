@@ -1,10 +1,11 @@
+import React from 'react'
 import { useContext } from 'react'
 import { StateContext } from '../../context'
 
 const sections = [
   { title: 'Header' },
   { title: 'Description' },
-  { title: 'People Involved' },
+  { title: 'Roles' },
   { title: 'Built With' },
   { title: 'Screenshots' },
   { title: 'Contact' },

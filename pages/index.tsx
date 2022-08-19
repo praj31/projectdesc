@@ -4,9 +4,9 @@ import Layout from '../components/layout'
 import RenderMarkdown from '../components/render/Markdown'
 import { BuiltWithSection } from '../components/sections/BuiltWith'
 import { ContactSection } from '../components/sections/Contact'
-import { DescriptionSection } from '../components/sections/Description'
-import { HeaderSection } from '../components/sections/Header'
-import { PeopleInvolvedSection } from '../components/sections/PeopleInvolved'
+import DescriptionSection from '../components/sections/Description'
+import HeaderSection from '../components/sections/Header'
+import { Roles } from '../components/sections/Roles'
 import { ScreenshotsSection } from '../components/sections/Screenshots'
 import { StateContext } from '../context'
 
@@ -15,7 +15,9 @@ const Home: NextPage = () => {
 
   return (
     <Layout>
-      <section>{displaySection(state.activeSection)}</section>
+      <section className='section'>
+        {displaySection(state.activeSection)}
+      </section>
       <section>
         <RenderMarkdown />
       </section>
@@ -29,8 +31,8 @@ const displaySection = (section: string) => {
       return <HeaderSection />
     case 'Description':
       return <DescriptionSection />
-    case 'People Involved':
-      return <PeopleInvolvedSection />
+    case 'Roles':
+      return <Roles />
     case 'Built With':
       return <BuiltWithSection />
     case 'Screenshots':

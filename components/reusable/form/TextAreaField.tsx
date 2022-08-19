@@ -9,10 +9,10 @@ type Props = {
   action: ACTIONS
 }
 
-const TextInputField = (props: Props) => {
+const TextAreaField = (props: Props) => {
   const { state, dispatch } = useContext(StateContext)
-  // console.log(`-- ${props.section}.${props.property} --`)
-  const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+
+  const handleChange = useCallback((e: ChangeEvent<HTMLTextAreaElement>) => {
     dispatch({
       // @ts-ignore
       type: props.action,
@@ -23,16 +23,17 @@ const TextInputField = (props: Props) => {
       },
     })
   }, [])
+
   return (
-    <input
-      className='text-ipf'
+    <textarea
+      rows={4}
+      className='text-arf'
       placeholder={props.placeholder}
       // @ts-ignore
       value={state[props.section][props.property]}
-      type={'text'}
       onChange={handleChange}
     />
   )
 }
 
-export default TextInputField
+export default TextAreaField

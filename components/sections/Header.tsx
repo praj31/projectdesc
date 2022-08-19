@@ -1,12 +1,29 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+import { ACTIONS } from '../../reducer/actions'
 import TextInputField from '../reusable/form/TextInputField'
 import SectionElement from '../reusable/section/SectionElement'
 import SectionNavigation from '../reusable/section/SectionNavigation'
 import SectionTitle from '../reusable/section/SectionTitle'
 
-export const HeaderSection = React.memo(() => {
+const HeaderSection = () => {
+  const scrollAnchorRef = useRef<HTMLDivElement>(null)
+  const action: ACTIONS = 'handle-section-ipf'
+  const section = 'header'
+
+  useEffect(() => {
+    if (scrollAnchorRef && scrollAnchorRef.current) {
+      scrollAnchorRef.current.scrollIntoView({
+        behavior: 'auto',
+        block: 'start',
+      })
+    }
+  }, [scrollAnchorRef])
+
+  // console.log('+++++ Header +++++')
+
   return (
     <>
+      <div ref={scrollAnchorRef}></div>
       <SectionTitle
         title='Header'
         subtitle="Grab your reader's attention with a flashy header!"
@@ -14,8 +31,8 @@ export const HeaderSection = React.memo(() => {
       <SectionElement title='Project Title' note='Be creative with it.'>
         <TextInputField
           placeholder='ProjectDesc'
-          action={'handle-header'}
-          section={'header'}
+          action={action}
+          section={section}
           property={'title'}
         />
       </SectionElement>
@@ -25,8 +42,8 @@ export const HeaderSection = React.memo(() => {
       >
         <TextInputField
           placeholder='Project Readme Generator'
-          action={'handle-header'}
-          section={'header'}
+          action={action}
+          section={section}
           property={'subtitle'}
         />
       </SectionElement>
@@ -36,24 +53,24 @@ export const HeaderSection = React.memo(() => {
       >
         <TextInputField
           placeholder='https://raw.githubusercontent.com/user/repo/branch/folder/image'
-          action={'handle-header'}
-          section={'header'}
+          action={action}
+          section={section}
           property={'logoURL'}
         />
       </SectionElement>
       <SectionElement title='Github Username' note='Just the name.'>
         <TextInputField
           placeholder='praj31'
-          action={'handle-header'}
-          section={'header'}
+          action={action}
+          section={section}
           property={'githubUser'}
         />
       </SectionElement>
       <SectionElement title='Github Repository Name' note='Just the name.'>
         <TextInputField
           placeholder='projectdesc'
-          action={'handle-header'}
-          section={'header'}
+          action={action}
+          section={section}
           property={'githubRepo'}
         />
       </SectionElement>
@@ -63,12 +80,14 @@ export const HeaderSection = React.memo(() => {
       >
         <TextInputField
           placeholder='https://myprojectlivehere.com'
-          action={'handle-header'}
-          section={'header'}
+          action={action}
+          section={section}
           property={'liveURL'}
         />
       </SectionElement>
       <SectionNavigation next='Description' />
     </>
   )
-})
+}
+
+export default React.memo(HeaderSection)

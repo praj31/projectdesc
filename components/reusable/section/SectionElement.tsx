@@ -1,3 +1,5 @@
+import React from 'react'
+
 type Props = {
   title: string
   children: React.ReactNode
@@ -13,4 +15,5 @@ const SectionElement = (props: Props) => {
     </div>
   )
 }
+
 export default SectionElement

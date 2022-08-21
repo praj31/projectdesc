@@ -1,0 +1,91 @@
+import Link from 'next/link'
+import React from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { StateContext } from '../../context'
+import { isDarkThemeSet, setDarkTheme } from '../../util/theme'
+
+const Navbar: React.FC = (): JSX.Element => {
+  const { state, dispatch } = useContext(StateContext)
+  const [toggle, setToggle] = useState<boolean>(isDarkThemeSet)
+
+  useEffect(() => {
+    if (state.sidebarOpen) {
+      document.querySelector('.sidebar')?.classList.add('sidebar-open')
+      document.querySelector('.theme-default-content')?.classList.add('pad-l')
+    } else {
+      document.querySelector('.sidebar')?.classList.remove('sidebar-open')
+      document
+        .querySelector('.theme-default-content')
+        ?.classList.remove('pad-l')
+    }
+  }, [state.sidebarOpen])
+
+  useEffect(() => {
+    if (toggle) {
+      setDarkTheme('dark')
+      document.body.classList.add('dark')
+      document.documentElement.setAttribute('data-color-scheme', 'dark')
+    } else {
+      setDarkTheme('light')
+      document.body.classList.remove('dark')
+      document.documentElement.setAttribute('data-color-scheme', 'light')
+    }
+  }, [toggle])
+
+  return (
+    <header className='navbar'>
+      <div className='sidebar-brand'>
+        <div
+          className='sidebar-button'
+          role={'button'}
+          onClick={() =>
+            dispatch({
+              type: 'toggle-sidebar',
+              payload: !state.sidebarOpen,
+            })
+          }
+        >
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            aria-hidden='true'
+            role='img'
+            viewBox='0 0 448 512'
+            className='icon'
+          >
+            <path
+              fill='currentColor'
+              d='M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z'
+            ></path>
+          </svg>
+        </div>
+        <div className='site-name'>
+          Project<span>Desc</span>
+        </div>
+      </div>
+      <div className='links'>
+        <nav className='nav-links'>
+          <div
+            className='nav-item icon'
+            role={'button'}
+            onClick={() => setToggle(!toggle)}
+          >
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+              strokeWidth='2'
+              fill='none'
+              strokeLinecap='round'
+              strokeLinejoin='round'
+            >
+              <path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
+              <path d='M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z'></path>
+            </svg>
+          </div>
+        </nav>
+      </div>
+    </header>
+  )
+}
+
+export default React.memo(Navbar)

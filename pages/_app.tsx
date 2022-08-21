@@ -1,24 +1,18 @@
 import type { AppProps } from 'next/app'
-import { useEffect, useState } from 'react'
-import { setDarkTheme } from '../util/theme'
+import { useEffect, useReducer, useState } from 'react'
+import { setTheme } from '../util/theme'
+import { StateContext } from '../context'
+import { reducer } from '../reducer'
+import { initialState } from '../reducer/state'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState<boolean>(true)
+
+  const [state, dispatch] = useReducer(reducer, initialState)
+
   useEffect(() => {
-    const theme = localStorage.getItem('theme')
-    if (!theme) {
-      setDarkTheme('light')
-      document.body.classList.remove('dark')
-    }
-    if (theme === 'dark') {
-      setDarkTheme('dark')
-      document.body.classList.add('dark')
-    }
-    if (theme === 'light') {
-      setDarkTheme('light')
-      document.body.classList.remove('dark')
-    }
+    setTheme()
     setLoading(false)
   }, [])
 
@@ -30,7 +24,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     )
   }
 
-  return <Component {...pageProps} />
+  return (
+    <StateContext.Provider value={{ state, dispatch }}>
+      <Component {...pageProps} />
+    </StateContext.Provider>
+  )
 }
 
 export default MyApp

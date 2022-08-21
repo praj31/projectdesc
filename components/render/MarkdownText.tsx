@@ -4,6 +4,7 @@ import { StateContext } from '../../context'
 const MarkdownText = forwardRef<HTMLDivElement>((_: any, ref) => {
   const { state } = useContext(StateContext)
   const { githubUser, githubRepo } = state.header
+
   return (
     <div ref={ref} style={{ display: 'none' }}>
       {/* Header */}
@@ -17,8 +18,7 @@ const MarkdownText = forwardRef<HTMLDivElement>((_: any, ref) => {
         `<p align="center">\n<img src="${state.header.logoURL}" alt="Project Logo" width="144" height="144" />\n</p>\n`}
 
       {/* Title */}
-      {state.header.title &&
-        `<h2 style="text-align:center;font-size:32px;">${state.header.title}</h2>\n`}
+      {state.header.title && `<h3 align="center">${state.header.title}</h3>\n`}
 
       {/* Subtitle */}
       {state.header.subtitle &&
@@ -36,20 +36,20 @@ const MarkdownText = forwardRef<HTMLDivElement>((_: any, ref) => {
       {/* Description */}
       {/* Objective */}
       {state.description.objective &&
-        `<h2>Project Objective</h2>\n<p>${state.description.objective}</p>\n<br/>\n`}
+        `<h3>Project Objective</h3>\n<p>${state.description.objective}</p>\n<br/>\n`}
 
       {/* Scope */}
       {state.description.scope &&
-        `<h2>Project Scope</h2>\n<p>${state.description.scope}</p>\n<br/>\n`}
+        `<h3>Project Scope</h3>\n<p>${state.description.scope}</p>\n<br/>\n`}
 
       {/* Challanges */}
       {state.description.challenge &&
-        `<h2>Project Challenge(s)</h2>\n<p>${state.description.challenge}</p>\n<br/>\n`}
+        `<h3>Project Challenge(s)</h3>\n<p>${state.description.challenge}</p>\n<br/>\n`}
 
       {/* Features */}
       {state.description.features.length > 0 &&
         state.description.features[0] &&
-        `<h2>Project Features</h2>\n<p>\n${state.description.features
+        `<h3>Project Features</h3>\n<p>\n${state.description.features
           .map((item) => item && `<li>${item}</li>\n`)
           .join('')}</p>\n<br/>\n`}
 
@@ -57,7 +57,7 @@ const MarkdownText = forwardRef<HTMLDivElement>((_: any, ref) => {
       {/* Roles */}
       {state.roles.people.length > 0 &&
         state.roles.people[0] &&
-        `<h2>Role(s)</h2>\n<p>\n${state.roles.people
+        `<h3>Role(s)</h3>\n<p>\n${state.roles.people
           .map((item) => item && `<li>${item}</li>\n`)
           .join('')}</p>\n<br/>\n`}
 
@@ -65,7 +65,7 @@ const MarkdownText = forwardRef<HTMLDivElement>((_: any, ref) => {
       {/* Built With */}
       {state.builtwith.stack.length > 0 &&
         state.builtwith.stack[0] &&
-        `<h2>Built With</h2>\n<p>\n${state.builtwith.stack
+        `<h3>Built With</h3>\n<p>\n${state.builtwith.stack
           .map((item) => item && `<li>${item}</li>\n`)
           .join('')}</p>\n<br/>\n`}
 
@@ -73,7 +73,7 @@ const MarkdownText = forwardRef<HTMLDivElement>((_: any, ref) => {
       {/* Screenshots */}
       {state.screenshots.images.length > 0 &&
         state.screenshots.images[0] &&
-        `<h2>Screenshots</h2>\n<p>\n${state.screenshots.images
+        `<h3>Screenshots</h3>\n<p>\n${state.screenshots.images
           .map(
             (item, idx) =>
               item &&
@@ -90,7 +90,7 @@ const MarkdownText = forwardRef<HTMLDivElement>((_: any, ref) => {
         state.contact.instagram ||
         state.contact.linkedin ||
         state.contact.twitter) &&
-        `<h2>Contact</h2>\n<p>\n<a href="mailto:${state.contact.email}" target="_blank" rel="noopener noreferrer">Email</a> • <a href="https://twitter.com/${state.contact.twitter}" target="_blank" rel="noopener noreferrer">Twitter</a> • <a href="https://instagram.com/${state.contact.instagram}" target="_blank" rel="noopener noreferrer">Instagram</a> • <a href="https://linkedin.com/in/${state.contact.linkedin}" target="_blank" rel="noopener noreferrer">LinkedIn</a>\n</p>\n<br/><br/>\n\n`}
+        `<h3>Contact</h3>\n<p>\n<a href="mailto:${state.contact.email}" target="_blank" rel="noopener noreferrer">Email</a> • <a href="https://twitter.com/${state.contact.twitter}" target="_blank" rel="noopener noreferrer">Twitter</a> • <a href="https://instagram.com/${state.contact.instagram}" target="_blank" rel="noopener noreferrer">Instagram</a> • <a href="https://linkedin.com/in/${state.contact.linkedin}" target="_blank" rel="noopener noreferrer">LinkedIn</a>\n</p>\n<br/><br/>\n\n`}
 
       {/* ************************************************************************** */}
       {/* Variables */}

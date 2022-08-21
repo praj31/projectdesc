@@ -1,28 +1,29 @@
 import React, { ChangeEvent, useCallback, useContext } from 'react'
 import { StateContext } from '../../../context'
-import { ACTIONS } from '../../../reducer/actions'
 
 type Props = {
   placeholder: string
   section: string
   property: string
-  action: ACTIONS
 }
 
 const TextAreaField = (props: Props) => {
   const { state, dispatch } = useContext(StateContext)
 
-  const handleChange = useCallback((e: ChangeEvent<HTMLTextAreaElement>) => {
-    dispatch({
-      // @ts-ignore
-      type: props.action,
-      payload: {
-        section: props.section,
-        property: props.property,
-        value: e.target.value,
-      },
-    })
-  }, [])
+  const handleChange = useCallback(
+    (e: ChangeEvent<HTMLTextAreaElement>) => {
+      dispatch({
+        // @ts-ignore
+        type: 'handle-section-ipf',
+        payload: {
+          section: props.section,
+          property: props.property,
+          value: e.target.value,
+        },
+      })
+    },
+    [dispatch, props.section, props.property]
+  )
 
   return (
     <textarea

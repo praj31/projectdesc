@@ -19,14 +19,21 @@ const TextInputArray = (props: Props) => {
       type: 'add-arr-ipf',
       payload: { section: props.section, property: props.property },
     })
-  }, [])
+  }, [dispatch, props.section, props.property])
 
-  const deleteField = useCallback((idx: number) => {
-    dispatch({
-      type: 'del-arr-ipf',
-      payload: { section: props.section, property: props.property, index: idx },
-    })
-  }, [])
+  const deleteField = useCallback(
+    (idx: number) => {
+      dispatch({
+        type: 'del-arr-ipf',
+        payload: {
+          section: props.section,
+          property: props.property,
+          index: idx,
+        },
+      })
+    },
+    [dispatch, props.section, props.property]
+  )
 
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>, idx: number) => {
@@ -41,7 +48,7 @@ const TextInputArray = (props: Props) => {
         },
       })
     },
-    []
+    [dispatch, props.section, props.property]
   )
 
   return (

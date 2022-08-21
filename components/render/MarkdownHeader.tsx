@@ -1,5 +1,3 @@
-import { isDarkThemeSet } from '../../util/theme'
-
 type Props = {
   downloadMarkdown: () => void
 }

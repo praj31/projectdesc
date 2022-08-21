@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react'
-import { ACTIONS } from '../../reducer/actions'
 import TextInputField from '../reusable/form/TextInputField'
 import SectionElement from '../reusable/section/SectionElement'
 import SectionNavigation from '../reusable/section/SectionNavigation'

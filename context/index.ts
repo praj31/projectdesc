@@ -9,7 +9,7 @@ interface ContextState {
 
 const intitalContext: ContextState = {
   state: initialState,
-  dispatch: (value: ReducerActionType) => undefined,
+  dispatch: (_: ReducerActionType) => undefined,
 }
 
 export const StateContext = createContext<ContextState>(intitalContext)

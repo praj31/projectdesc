@@ -102,4 +102,6 @@ const MarkdownText = forwardRef<HTMLDivElement>((_: any, ref) => {
   )
 })
 
+MarkdownText.displayName = 'MarkdownText'
+
 export default MarkdownText

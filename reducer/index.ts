@@ -1,4 +1,3 @@
-import Header from '../components/sections/Header'
 import { ReducerActionType } from './actions'
 import { ReducerStateType } from './state'
 

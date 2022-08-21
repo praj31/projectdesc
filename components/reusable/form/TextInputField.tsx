@@ -1,6 +1,5 @@
 import React, { ChangeEvent, useCallback, useContext } from 'react'
 import { StateContext } from '../../../context'
-import { ACTIONS } from '../../../reducer/actions'
 
 type Props = {
   placeholder: string
@@ -10,16 +9,19 @@ type Props = {
 
 const TextInputField = (props: Props) => {
   const { state, dispatch } = useContext(StateContext)
-  const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    dispatch({
-      type: 'handle-section-ipf',
-      payload: {
-        section: props.section,
-        property: props.property,
-        value: e.target.value,
-      },
-    })
-  }, [])
+  const handleChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      dispatch({
+        type: 'handle-section-ipf',
+        payload: {
+          section: props.section,
+          property: props.property,
+          value: e.target.value,
+        },
+      })
+    },
+    [dispatch, props.section, props.property]
+  )
   return (
     <input
       className='text-ipf'

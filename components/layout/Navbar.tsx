@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import React from 'react'
 import { useContext, useEffect, useState } from 'react'
 import { StateContext } from '../../context'

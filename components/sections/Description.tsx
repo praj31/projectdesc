@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react'
-import { ACTIONS } from '../../reducer/actions'
 import TextAreaField from '../reusable/form/TextAreaField'
 import TextInputArray from '../reusable/form/TextInputArray'
 import SectionElement from '../reusable/section/SectionElement'
@@ -8,7 +7,6 @@ import SectionTitle from '../reusable/section/SectionTitle'
 
 const DescriptionSection = () => {
   const scrollAnchorRef = useRef<HTMLDivElement>(null)
-  const action: ACTIONS = 'handle-section-ipf'
   const section = 'description'
 
   useEffect(() => {
@@ -33,7 +31,6 @@ const DescriptionSection = () => {
       >
         <TextAreaField
           placeholder="Writing a good README file that summarizes enough information for the readers to unambiguously understand is must thing to have on your GitHub repository. ProjectDesc helps achieve precisely that within minutes. Don't worry about writing your own markdown file anymore!"
-          action={action}
           section={section}
           property='objective'
         />
@@ -44,7 +41,6 @@ const DescriptionSection = () => {
       >
         <TextAreaField
           placeholder='ProjectDesc is useful resource to the developers community who need to quickly summarize important parts of their project in their README file which goes on the GitHub repository.'
-          action={action}
           section={section}
           property='scope'
         />
@@ -55,7 +51,6 @@ const DescriptionSection = () => {
       >
         <TextAreaField
           placeholder='Having a well designed UI which is easy to navigate while also being fast to reflect the live changes as the user types was a major design and development goal of the project.'
-          action={action}
           section={section}
           property='challenge'
         />

@@ -1,11 +1,24 @@
+import { useRef, useEffect } from 'react'
 import TextInputField from '../reusable/form/TextInputField'
 import SectionElement from '../reusable/section/SectionElement'
 import SectionNavigation from '../reusable/section/SectionNavigation'
 import SectionTitle from '../reusable/section/SectionTitle'
 
 export const ContactSection = () => {
+  const scrollAnchorRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (scrollAnchorRef && scrollAnchorRef.current) {
+      scrollAnchorRef.current.scrollIntoView({
+        behavior: 'auto',
+        block: 'start',
+      })
+    }
+  }, [scrollAnchorRef])
+
   return (
     <>
+      <div ref={scrollAnchorRef}></div>
       <SectionTitle
         title='Contact'
         subtitle='Let your audience know how to reach you.'
@@ -13,7 +26,6 @@ export const ContactSection = () => {
       <SectionElement title='Email' note='Your mail ID.'>
         <TextInputField
           placeholder='rajputpraj.31@gmail.com'
-          action='handle-section-ipf'
           section='contact'
           property='email'
         />
@@ -21,7 +33,6 @@ export const ContactSection = () => {
       <SectionElement title='Twitter' note='Just the username.'>
         <TextInputField
           placeholder='prajx31'
-          action='handle-section-ipf'
           section='contact'
           property='twitter'
         />
@@ -29,7 +40,6 @@ export const ContactSection = () => {
       <SectionElement title='Instagram' note='Just the username.'>
         <TextInputField
           placeholder='prajx31'
-          action='handle-section-ipf'
           section='contact'
           property='instagram'
         />
@@ -37,7 +47,6 @@ export const ContactSection = () => {
       <SectionElement title='LinkedIn' note='Just the username.'>
         <TextInputField
           placeholder='rajputpraj'
-          action='handle-section-ipf'
           section='contact'
           property='linkedin'
         />

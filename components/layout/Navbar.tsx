@@ -58,11 +58,9 @@ const Navbar: React.FC = (): JSX.Element => {
             ></path>
           </svg>
         </div>
-        <Link href={'/'}>
-          <a className='site-name'>
-            Project<span>Desc</span>
-          </a>
-        </Link>
+        <div className='site-name'>
+          Project<span>Desc</span>
+        </div>
       </div>
       <div className='links'>
         <nav className='nav-links'>

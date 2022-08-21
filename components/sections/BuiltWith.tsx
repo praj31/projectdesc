@@ -12,10 +12,10 @@ export const BuiltWithSection = () => {
       />
       <SectionElement
         title='Technology and Tools'
-        note='Mention the core languages, frameworks and tools used create the project. This helps showcase your skill set.'
+        note='Mention the core languages, frameworks and tools used create the project.'
       >
         <TextInputArray
-          placeholder='NextJS with Typescript'
+          placeholder='Next Typescript'
           section='builtwith'
           property='stack'
           button_label='Add Tech or Tool'

@@ -7,7 +7,6 @@ import SectionTitle from '../reusable/section/SectionTitle'
 
 const HeaderSection = () => {
   const scrollAnchorRef = useRef<HTMLDivElement>(null)
-  const action: ACTIONS = 'handle-section-ipf'
   const section = 'header'
 
   useEffect(() => {
@@ -19,8 +18,6 @@ const HeaderSection = () => {
     }
   }, [scrollAnchorRef])
 
-  // console.log('+++++ Header +++++')
-
   return (
     <>
       <div ref={scrollAnchorRef}></div>
@@ -31,7 +28,6 @@ const HeaderSection = () => {
       <SectionElement title='Project Title' note='Be creative with it.'>
         <TextInputField
           placeholder='ProjectDesc'
-          action={action}
           section={section}
           property={'title'}
         />
@@ -42,7 +38,6 @@ const HeaderSection = () => {
       >
         <TextInputField
           placeholder='Project Readme Generator'
-          action={action}
           section={section}
           property={'subtitle'}
         />
@@ -53,7 +48,6 @@ const HeaderSection = () => {
       >
         <TextInputField
           placeholder='https://raw.githubusercontent.com/user/repo/branch/folder/image'
-          action={action}
           section={section}
           property={'logoURL'}
         />
@@ -61,7 +55,6 @@ const HeaderSection = () => {
       <SectionElement title='Github Username' note='Just the name.'>
         <TextInputField
           placeholder='praj31'
-          action={action}
           section={section}
           property={'githubUser'}
         />
@@ -69,7 +62,6 @@ const HeaderSection = () => {
       <SectionElement title='Github Repository Name' note='Just the name.'>
         <TextInputField
           placeholder='projectdesc'
-          action={action}
           section={section}
           property={'githubRepo'}
         />
@@ -79,8 +71,7 @@ const HeaderSection = () => {
         note='Let your work speak for itself.'
       >
         <TextInputField
-          placeholder='https://myprojectlivehere.com'
-          action={action}
+          placeholder='https://projectdesc.vercel.app'
           section={section}
           property={'liveURL'}
         />

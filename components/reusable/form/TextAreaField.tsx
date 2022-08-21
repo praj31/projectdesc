@@ -26,7 +26,7 @@ const TextAreaField = (props: Props) => {
 
   return (
     <textarea
-      rows={4}
+      rows={5}
       className='text-arf'
       placeholder={props.placeholder}
       // @ts-ignore

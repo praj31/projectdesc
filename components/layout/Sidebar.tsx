@@ -33,6 +33,40 @@ const Sidebar: React.FC = (): JSX.Element => {
             </li>
           ))}
         </ul>
+        <div className='sidebar-other-links'>
+          <p>For Developers</p>
+          <a
+            href='https://github.com/praj31/projectdesc'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            View Source Code
+          </a>
+          <a
+            href='https://github.com/praj31/projectdesc/issues'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Report a bug
+          </a>
+          <a
+            href='https://github.com/praj31/projectdesc/issues'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Request a feature
+          </a>
+          <a
+            href='mailto:rajputpraj.31@gmail.com'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Contact Me
+          </a>
+          <p style={{ marginTop: '1rem' }}>
+            &copy; {new Date().getFullYear()} Pratikraj Rajput
+          </p>
+        </div>
       </aside>
     </>
   )

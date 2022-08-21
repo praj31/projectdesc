@@ -6,16 +6,13 @@ type Props = {
   placeholder: string
   section: string
   property: string
-  action: ACTIONS
 }
 
 const TextInputField = (props: Props) => {
   const { state, dispatch } = useContext(StateContext)
-  // console.log(`-- ${props.section}.${props.property} --`)
   const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     dispatch({
-      // @ts-ignore
-      type: props.action,
+      type: 'handle-section-ipf',
       payload: {
         section: props.section,
         property: props.property,

@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import Head from 'next/head'
 import React, { useContext } from 'react'
 import Layout from '../components/layout'
 import RenderMarkdown from '../components/render/Markdown'
@@ -14,14 +15,32 @@ const Home: NextPage = () => {
   const { state } = useContext(StateContext)
 
   return (
-    <Layout>
-      <section className='section'>
-        {displaySection(state.activeSection)}
-      </section>
-      <section>
-        <RenderMarkdown />
-      </section>
-    </Layout>
+    <>
+      <Head>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <title>ProjectDesc | Best GitHub README Generator</title>
+        <meta
+          name='description'
+          content='Generating README files for your amazing GitHub projects has never been so easy as with ProjectDesc. A dynamic, easy to use and elegant solution to generating a perfect markdown template within minutes.'
+        />
+        <meta
+          property='og:title'
+          content='ProjectDesc | Best GitHub README Generator'
+        />
+        <meta
+          property='og:description'
+          content='Generating README files for your amazing GitHub projects has never been so easy as with ProjectDesc. A dynamic, easy to use and elegant solution to generating a perfect markdown template within minutes.'
+        />
+      </Head>
+      <Layout>
+        <section className='section'>
+          {displaySection(state.activeSection)}
+        </section>
+        <section>
+          <RenderMarkdown />
+        </section>
+      </Layout>
+    </>
   )
 }
 

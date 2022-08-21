@@ -15,4 +15,6 @@ const SectionTitle = forwardRef<HTMLDivElement, Props>((props: Props, ref) => {
   )
 })
 
+SectionTitle.displayName = 'SectionTitle'
+
 export default SectionTitle

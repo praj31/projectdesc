@@ -6,23 +6,23 @@
 <p align="center">
 <img src="https://raw.githubusercontent.com/praj31/projectdesc/main/public/android-chrome-512x512.png" alt="Project Logo" width="144" height="144" />
 </p>
-<h2 style="text-align:center;font-size:32px;">ProjectDesc</h2>
+<h3 align="center">ProjectDesc</h3>
 <p align="center">
 Best GitHub Project Readme Generator
 <br/>
 <a href="https://github.com/praj31/projectdesc/issues" target="_blank" rel="noopener noreferrer">Report Bug</a> • <a href="https://github.com/praj31/projectdesc/issues" target="_blank" rel="noopener noreferrer">Request Feature</a> • <a href="https://projectdesc.vercel.app" target="_blank" rel="noopener noreferrer">View Live</a>
 </p>
 <br/>
-<h2>Project Objective</h2>
+<h3>Project Objective</h3>
 <p>Writing a good README file that summarizes enough information for the readers to unambiguously understand is must thing to have on your GitHub repository. ProjectDesc helps achieve precisely that within minutes. Don't worry about writing your own markdown file anymore!</p>
 <br/>
-<h2>Project Scope</h2>
+<h3>Project Scope</h3>
 <p>ProjectDesc is useful resource to the developers community who need to quickly summarize important parts of their project in their README file which goes on the GitHub repository.</p>
 <br/>
-<h2>Project Challenge(s)</h2>
+<h3>Project Challenge(s)</h3>
 <p>Having a well designed UI which is easy to navigate while also being fast to reflect the live changes as the user types was a major design and development goal of the project.</p>
 <br/>
-<h2>Project Features</h2>
+<h3>Project Features</h3>
 <p>
 <li>Live changes visible to the user.</li>
 <li>Support for light and dark theme.</li>
@@ -32,23 +32,23 @@ Best GitHub Project Readme Generator
 <li>Fully responsive for small and large screen sizes.</li>
 </p>
 <br/>
-<h2>Role(s)</h2>
+<h3>Role(s)</h3>
 <p>
 <li>Pratikraj Rajput - Full Stack Engineer</li>
 </p>
 <br/>
-<h2>Built With</h2>
+<h3>Built With</h3>
 <p>
 <li>Next TypeScript</li>
 </p>
 <br/>
-<h2>Screenshots</h2>
+<h3>Screenshots</h3>
 <p>
 <img src="https://raw.githubusercontent.com/praj31/projectdesc/main/public/LightModeSS.png" alt="Project Screenshot 1" width="100%" height="auto" />
 <img src="https://raw.githubusercontent.com/praj31/projectdesc/main/public/DarkModeSS.png" alt="Project Screenshot 2" width="100%" height="auto" />
 </p>
 <br/>
-<h2>Contact</h2>
+<h3>Contact</h3>
 <p>
 <a href="mailto:rajputpraj.31@gmail.com" target="_blank" rel="noopener noreferrer">Email</a> • <a href="https://twitter.com/prajx31" target="_blank" rel="noopener noreferrer">Twitter</a> • <a href="https://instagram.com/prajx31" target="_blank" rel="noopener noreferrer">Instagram</a> • <a href="https://linkedin.com/in/rajputpraj" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 </p>

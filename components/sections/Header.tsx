@@ -12,17 +12,17 @@ const HeaderSection = () => {
     if (scrollAnchorRef && scrollAnchorRef.current) {
       scrollAnchorRef.current.scrollIntoView({
         behavior: 'auto',
-        block: 'start',
+        block: 'end',
       })
     }
   }, [scrollAnchorRef])
 
   return (
     <>
-      <div ref={scrollAnchorRef}></div>
       <SectionTitle
         title='Header'
         subtitle="Grab your reader's attention with a flashy header!"
+        ref={scrollAnchorRef}
       />
       <SectionElement title='Project Title' note='Be creative with it.'>
         <TextInputField

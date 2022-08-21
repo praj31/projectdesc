@@ -11,17 +11,17 @@ export const ContactSection = () => {
     if (scrollAnchorRef && scrollAnchorRef.current) {
       scrollAnchorRef.current.scrollIntoView({
         behavior: 'auto',
-        block: 'start',
+        block: 'end',
       })
     }
   }, [scrollAnchorRef])
 
   return (
     <>
-      <div ref={scrollAnchorRef}></div>
       <SectionTitle
         title='Contact'
         subtitle='Let your audience know how to reach you.'
+        ref={scrollAnchorRef}
       />
       <SectionElement title='Email' note='Your mail ID.'>
         <TextInputField

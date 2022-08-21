@@ -11,15 +11,18 @@ export const Roles = () => {
     if (scrollAnchorRef && scrollAnchorRef.current) {
       scrollAnchorRef.current.scrollIntoView({
         behavior: 'auto',
-        block: 'start',
+        block: 'end',
       })
     }
   }, [scrollAnchorRef])
 
   return (
     <>
-      <div ref={scrollAnchorRef}></div>
-      <SectionTitle title='Roles' subtitle='Is it a solo or group project?' />
+      <SectionTitle
+        title='Roles'
+        subtitle='Is it a solo or group project?'
+        ref={scrollAnchorRef}
+      />
       <SectionElement title='People' note='Mention the name and the role.'>
         <TextInputArray
           placeholder='Pratikraj Rajput - Full Stack Engineer'

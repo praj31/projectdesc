@@ -11,17 +11,17 @@ export const BuiltWithSection = () => {
     if (scrollAnchorRef && scrollAnchorRef.current) {
       scrollAnchorRef.current.scrollIntoView({
         behavior: 'auto',
-        block: 'start',
+        block: 'end',
       })
     }
   }, [scrollAnchorRef])
 
   return (
     <>
-      <div ref={scrollAnchorRef}></div>
       <SectionTitle
         title='Built With'
         subtitle='The technology stack of your project matters.'
+        ref={scrollAnchorRef}
       />
       <SectionElement
         title='Technology and Tools'

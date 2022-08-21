@@ -11,17 +11,17 @@ export const ScreenshotsSection = () => {
     if (scrollAnchorRef && scrollAnchorRef.current) {
       scrollAnchorRef.current.scrollIntoView({
         behavior: 'auto',
-        block: 'start',
+        block: 'end',
       })
     }
   }, [scrollAnchorRef])
 
   return (
     <>
-      <div ref={scrollAnchorRef}></div>
       <SectionTitle
         title='Screenshots'
-        subtitle='Give your audience a sneak peek of your UI.'
+        subtitle='Give your audience a sneak peek of your project UI.'
+        ref={scrollAnchorRef}
       />
       <SectionElement
         title='Image URL'

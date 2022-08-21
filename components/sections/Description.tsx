@@ -13,17 +13,17 @@ const DescriptionSection = () => {
     if (scrollAnchorRef && scrollAnchorRef.current) {
       scrollAnchorRef.current.scrollIntoView({
         behavior: 'auto',
-        block: 'start',
+        block: 'end',
       })
     }
   }, [scrollAnchorRef])
 
   return (
     <>
-      <div ref={scrollAnchorRef}></div>
       <SectionTitle
         title='Description'
         subtitle="Let's dig into the juicy details of your project."
+        ref={scrollAnchorRef}
       />
       <SectionElement
         title='Project Objective'

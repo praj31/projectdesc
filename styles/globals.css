@@ -264,10 +264,6 @@ button:hover {
   padding: 0 0 0 2.5%;
 }
 
-.sidebar > .sidebar-links {
-  padding: 1rem 0;
-}
-
 .sidebar-links {
   margin-bottom: auto;
 }
@@ -366,7 +362,6 @@ a.sidebar-link:hover {
 
 .theme-default-content:not(.custom) section {
   height: 100%;
-  margin-top: 2rem;
   min-height: calc(100vh - 3.3rem);
   max-height: calc(100vh - 3.3rem);
   overflow-x: hidden;
@@ -375,6 +370,7 @@ a.sidebar-link:hover {
 
 .theme-default-content:not(.custom) section:first-child {
   border-right: var(--border);
+  padding-right: 2rem;
 }
 
 .theme-default-content:not(.custom) section:last-child {
@@ -389,12 +385,8 @@ a.sidebar-link:hover {
   text-decoration: underline;
 }
 
-.theme-default-content:not(.custom) section:first-child {
-  padding-right: 2rem;
-}
-
 .section-title {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   margin-bottom: 0;
 }
 
@@ -515,8 +507,6 @@ a.sidebar-link:hover {
   outline: none;
   border: none;
   border-radius: 0 0.5rem 0.5rem 0;
-  /* color: var(--bg); */
-  /* background-color: var(--gray-text); */
 }
 
 .ipf-del-icon {
@@ -548,15 +538,15 @@ a.sidebar-link:hover {
   .sidebar {
     font-size: 15px;
     width: 16.4rem;
-    padding: 0 0 0 5%;
+    padding: 0 0 0 8%;
   }
 
   .navbar {
-    padding: 0.7rem 5%;
+    padding: 0.7rem 8%;
   }
 
   .theme-default-content:not(.custom) {
-    padding: 3rem 5% 0;
+    padding: 3rem 8% 0;
     grid-template-columns: 1fr;
     grid-template-rows: 2fr;
   }

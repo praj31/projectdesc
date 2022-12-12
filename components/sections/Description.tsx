@@ -72,4 +72,4 @@ const DescriptionSection = () => {
   )
 }
 
-export default React.memo(DescriptionSection)
+export default DescriptionSection

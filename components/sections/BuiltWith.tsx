@@ -4,7 +4,7 @@ import SectionElement from '../reusable/section/SectionElement'
 import SectionNavigation from '../reusable/section/SectionNavigation'
 import SectionTitle from '../reusable/section/SectionTitle'
 
-export const BuiltWithSection = () => {
+const BuiltWithSection = () => {
   const scrollAnchorRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -39,3 +39,5 @@ export const BuiltWithSection = () => {
     </>
   )
 }
+
+export default BuiltWithSection

@@ -4,7 +4,7 @@ import SectionElement from '../reusable/section/SectionElement'
 import SectionNavigation from '../reusable/section/SectionNavigation'
 import SectionTitle from '../reusable/section/SectionTitle'
 
-export const ContactSection = () => {
+const ContactSection = () => {
   const scrollAnchorRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -55,3 +55,5 @@ export const ContactSection = () => {
     </>
   )
 }
+
+export default ContactSection

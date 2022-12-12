@@ -1,5 +1,5 @@
-import React, { ChangeEvent, useCallback, useContext } from 'react'
-import { StateContext } from '../../../context'
+import { useStore } from '../../../store'
+import useStoreAction from '../../../store/actions'
 
 type Props = {
   placeholder: string
@@ -8,22 +8,11 @@ type Props = {
 }
 
 const TextAreaField = (props: Props) => {
-  const { state, dispatch } = useContext(StateContext)
-
-  const handleChange = useCallback(
-    (e: ChangeEvent<HTMLTextAreaElement>) => {
-      dispatch({
-        // @ts-ignore
-        type: 'handle-section-ipf',
-        payload: {
-          section: props.section,
-          property: props.property,
-          value: e.target.value,
-        },
-      })
-    },
-    [dispatch, props.section, props.property]
-  )
+  const value = useStore((state) => {
+    // @ts-ignore
+    state[props.section][props.property]
+  })
+  const handleSectionInputField = useStoreAction.handleSectionInputField
 
   return (
     <textarea
@@ -31,8 +20,10 @@ const TextAreaField = (props: Props) => {
       className='text-arf'
       placeholder={props.placeholder}
       // @ts-ignore
-      value={state[props.section][props.property]}
-      onChange={handleChange}
+      value={value}
+      onChange={(e) =>
+        handleSectionInputField(props.section, props.property, e.target.value)
+      }
     />
   )
 }

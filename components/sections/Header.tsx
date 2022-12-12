@@ -7,7 +7,6 @@ import SectionTitle from '../reusable/section/SectionTitle'
 const HeaderSection = () => {
   const scrollAnchorRef = useRef<HTMLDivElement>(null)
   const section = 'header'
-
   useEffect(() => {
     if (scrollAnchorRef && scrollAnchorRef.current) {
       scrollAnchorRef.current.scrollIntoView({
@@ -80,4 +79,4 @@ const HeaderSection = () => {
   )
 }
 
-export default React.memo(HeaderSection)
+export default HeaderSection

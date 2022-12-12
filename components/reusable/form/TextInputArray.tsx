@@ -1,5 +1,5 @@
-import React, { ChangeEvent, useCallback, useContext } from 'react'
-import { StateContext } from '../../../context'
+import { useStore } from '../../../store'
+import useStoreAction from '../../../store/actions'
 
 type Props = {
   placeholder: string
@@ -10,46 +10,13 @@ type Props = {
 }
 
 const TextInputArray = (props: Props) => {
-  const { state, dispatch } = useContext(StateContext)
-  // @ts-ignore
-  const items: string[] = state[props.section][props.property]
-
-  const addField = useCallback(() => {
-    dispatch({
-      type: 'add-arr-ipf',
-      payload: { section: props.section, property: props.property },
-    })
-  }, [dispatch, props.section, props.property])
-
-  const deleteField = useCallback(
-    (idx: number) => {
-      dispatch({
-        type: 'del-arr-ipf',
-        payload: {
-          section: props.section,
-          property: props.property,
-          index: idx,
-        },
-      })
-    },
-    [dispatch, props.section, props.property]
+  const items: string[] = useStore(
+    // @ts-ignore
+    (state) => state[props.section][props.property]
   )
-
-  const handleChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>, idx: number) => {
-      // @ts-ignore
-      dispatch({
-        type: 'edit-arr-ipf',
-        payload: {
-          section: props.section,
-          property: props.property,
-          value: e.target.value,
-          index: idx,
-        },
-      })
-    },
-    [dispatch, props.section, props.property]
-  )
+  const addArrayInputField = useStoreAction.addArrayInputField
+  const editArrayInputField = useStoreAction.editArrayInputField
+  const deleteArrayInputField = useStoreAction.deleteArrayInputField
 
   return (
     <>
@@ -59,7 +26,9 @@ const TextInputArray = (props: Props) => {
         // @ts-ignore
         value={items[0]}
         type={'text'}
-        onChange={(e) => handleChange(e, 0)}
+        onChange={(e) =>
+          editArrayInputField(props.section, props.property, e.target.value, 0)
+        }
       />
       {/* @ts-ignore */}
       {items.slice(1).length > 0 &&
@@ -70,9 +39,21 @@ const TextInputArray = (props: Props) => {
               placeholder={`${props.placeholder_label} ${idx + 2}`}
               value={value}
               type={'text'}
-              onChange={(e) => handleChange(e, idx + 1)}
+              onChange={(e) =>
+                editArrayInputField(
+                  props.section,
+                  props.property,
+                  e.target.value,
+                  idx + 1
+                )
+              }
             />
-            <button className='arr-delb' onClick={() => deleteField(idx + 1)}>
+            <button
+              className='arr-delb'
+              onClick={() =>
+                deleteArrayInputField(props.section, props.property, idx + 1)
+              }
+            >
               <svg
                 className='ipf-del-icon'
                 xmlns='http://www.w3.org/2000/svg'
@@ -91,7 +72,10 @@ const TextInputArray = (props: Props) => {
             </button>
           </div>
         ))}
-      <button className='arr-addf' onClick={addField}>
+      <button
+        className='arr-addf'
+        onClick={() => addArrayInputField(props.section, props.property)}
+      >
         {props.button_label}
       </button>
     </>

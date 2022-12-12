@@ -1,6 +1,6 @@
 import React from 'react'
-import { useContext } from 'react'
-import { StateContext } from '../../context'
+import { useStore } from '../../store'
+import useStoreAction from '../../store/actions'
 
 const sections = [
   { title: 'Header' },
@@ -12,22 +12,17 @@ const sections = [
 ]
 
 const Sidebar: React.FC = (): JSX.Element => {
-  const { state, dispatch } = useContext(StateContext)
+  const activeSection = useStore((state) => state.activeSection)
+  const changeActiveSection = useStoreAction.changeActiveSection
   return (
     <>
-      <div className='sidebar-mask'></div>
       <aside className='sidebar'>
         <ul className='sidebar-links'>
           {sections.map(({ title }, idx) => (
             <li
               key={idx}
-              className={`${state.activeSection === title ? 'active' : ''}`}
-              onClick={() =>
-                dispatch({
-                  type: 'change-section',
-                  payload: title,
-                })
-              }
+              className={`${activeSection === title ? 'active' : ''}`}
+              onClick={() => changeActiveSection(title)}
             >
               {title}
             </li>

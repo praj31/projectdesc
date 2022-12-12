@@ -1,18 +1,14 @@
 import type { AppProps } from 'next/app'
-import { useEffect, useReducer, useState } from 'react'
-import { setTheme } from '../util/theme'
-import { StateContext } from '../context'
-import { reducer } from '../reducer'
-import { initialState } from '../reducer/state'
+import { useEffect, useState } from 'react'
+import { useTheme } from '../hooks/useTheme'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState<boolean>(true)
-
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const { setPreferredTheme } = useTheme()
 
   useEffect(() => {
-    setTheme()
+    setPreferredTheme()
     setLoading(false)
   }, [])
 
@@ -24,11 +20,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     )
   }
 
-  return (
-    <StateContext.Provider value={{ state, dispatch }}>
-      <Component {...pageProps} />
-    </StateContext.Provider>
-  )
+  return <Component {...pageProps} />
 }
 
 export default MyApp

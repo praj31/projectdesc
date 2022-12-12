@@ -1,12 +1,11 @@
 import { useCallback, useRef } from 'react'
-import MarkdownHeader from './MarkdownHeader'
-import MarkdownPreview from './MarkdownPreview'
-import MarkdownText from './MarkdownText'
+import MarkdownHeader from '../markdown/MarkdownHeader'
+import MarkdownPreview from '../markdown/MarkdownPreview'
+import MarkdownText from '../markdown/MarkdownText'
 
 const RenderMarkdown = () => {
   const markdownRef = useRef<HTMLDivElement>(null)
   const downloadMarkdown = useCallback(() => {
-    // console.log(markdownRef.current?.innerText)
     if (markdownRef !== null && markdownRef.current) {
       if (markdownRef.current.innerText.length > 0) {
         const element = document.createElement('a')
@@ -21,11 +20,11 @@ const RenderMarkdown = () => {
   }, [])
 
   return (
-    <>
+    <section>
       <MarkdownHeader downloadMarkdown={downloadMarkdown} />
       <MarkdownPreview />
       <MarkdownText ref={markdownRef} />
-    </>
+    </section>
   )
 }
 

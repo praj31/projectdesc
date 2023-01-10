@@ -30,6 +30,7 @@ Best GitHub Project Readme Generator
 <li>Support for showing GitHub stats via shields.</li>
 <li>Concise format and flow of sections that ably describe the project in the best way possible.</li>
 <li>Fully responsive for small and large screen sizes.</li>
+<li>Optimized state management using Zustand and memoization hooks to minimize re-rendering.</li>
 </p>
 <br/>
 <h3>Role(s)</h3>
